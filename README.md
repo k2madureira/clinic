@@ -2,6 +2,27 @@
 
 # Clinic ![node](https://user-images.githubusercontent.com/26586585/75612422-f747e380-5b01-11ea-9213-ec9742b66a47.png)
 
+### Structure
+
+```
+  clinic
+    |_ public
+        |_ docs
+        |_ postman
+    |_ src
+        |_ app
+            |_ config
+                  |_ > database.js
+            |_ controllers
+                  |_ > ruleController.js
+            |_ models
+                  |_ > Rule.js
+        |_ databse
+              |_ > rules.json
+        |_ > app.js
+        |_ > routes.js
+        |_ > server.js
+```
 
 ### Docs
 
