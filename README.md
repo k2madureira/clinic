@@ -13,33 +13,35 @@
 4. Using your code editor, I renamed the **.exemple.env** file to **.env**;
 5. Using terminal run **yarn start**, to start the server on port **3334**
 
-### code formatter
+### code formatter / Extensions
 
 - [x] **Eslint** (Airbnb)
+- [x] **Eslint** (Visual Studio Code - Extension)
 - [x] **Prettier**
+- [x] **EditorConfig** (Visual Studio Code - Extension)
+
 
 ### Routes
 
+|Number| Type | Route | Definition |
+|-|------|-------|------------|
+|1| *Get* | / | List All rules |
+|2| *Get* | /rules | List All rules |
+|3| *Post* | /rules/type | Create a new Rule |
+|4| *Get* | /rules/period | List All rules in a period |
+|5| *Delete* | /rules/1 | Delete rule by **ID** |
 
-1. **[Get]** -> "/" List All rules; 
-2. **[Get]** -> "/rules" List All rules;
-3. **[Post]** -> "/rules/:type" Create a new rule;
-4. **[Get]** -> "/rules/period" List all rules in a period;
-5. **[Delete]** -> "/rules/:id" Delete rule.
 
-#### Exemple:
 
-* Using local server with port (**3334**)
+#### Exemples: 
+
 
 1. http://localhost:3334/ or http://localhost:3334/rules **(get)**
 
-#### Res.json(rules)
+##### Response
 
 ```
-[
-
-  {
- 
+[{
   "id": 1,
   "type": "daily",
   "date": null,
@@ -49,9 +51,10 @@
      "start": "08:00",
      "end": "10:05"
      }
-  }
- ]
+  }]
  ```
+ 
+ ------------------------------------------------------------
  
  2. http://localhost:3334/rules/daily **(post)** 
  
@@ -62,60 +65,125 @@
  * If a specific day has already been registered. A time check is performed for the addition of a new time.
  
  
- #### req.query 
+ ##### req.query 
 
 ```
-	"type": daily 	
+	http://localhost:3334/rules/daily
+	type: daily
+	types = ['specific', 'daily', 'weekly']
 
  ```
  
  
  
- #### (Daily rule, exemple) req.body  
+ ##### Exemples req.body (JSON) 
 
+ 1. Daily
 ```
-{
-	"date": "",
+     { 
 	"days": [],
-	"start": "08:00", 
-	"end": "10:05"	
-}
- ```
-
-#### Res.json(rules)
-
-```
-[
-
-  {
- 
-  "id": 1,
-  "type": "daily",
-  "date": null,
-  "days": [],
-  "hours": [
-     {
-     "start": "08:00",
-     "end": "10:05"
+	"date_start": "2020-03-05 13:00:00", 
+	"date_end": "2020-03-05 14:05:00"	
      }
-  }
- ]
  ```
  
- 3. http://localhost:3334/period **(get)**
+2. Weekly
+```
+     { 
+	"days": ["Sun","Mon"],
+	"date_start": "2020-03-05 09:00:00", 
+	"date_end": "2020-03-05 10:00:00"	
+     }
+ ```
+ 
+ 3. Specific
+```
+     { 
+	"days": [],
+	"date_start": "2020-03-05 17:00:00", 
+	"date_end": "2020-03-05 18:00:00"	
+     }
+ ```
+ 
+##### Responses
+
+1. Daily
+```
+   {
+  	"menssage": "Successfully updated rule!",
+	"update": 
+            [{
+	      "id": 1,
+	      "type": "daily",
+	      "date": null,
+	      "days": [],
+	      "hours": [
+		{
+		  "start": "13:00",
+		  "end": "14:05"
+	    }]
+    }
+ ```
+ 2. Weekly
+```
+   {
+  	"menssage": "Successfully updated rule!",
+	"update": 
+            [{
+	      "id": 2,
+	      "type": "Weekly",
+	      "date": null,
+	      "days": ["Sun", "Mon"],
+	      "hours": [
+		{
+		  "start": "09:00",
+		  "end": "10:00"
+	    }]
+    }
+ ```
+ 
+ 3. Specific
+```
+   {
+  	"menssage": "Successfully updated rule!",
+	"update": 
+            [{
+	      "id": 1,
+	      "type": "daily",
+	      "date": "2020-03-05",
+	      "days": [],
+	      "hours": [
+		{
+		  "start": "12:40",
+		  "end": "13:20"
+	        },
+		{
+		  "start": "17:00",
+		  "end": "18:00"
+	        }
+	    ]
+    }
+ ```
+ 
+ ------------------------------------------------------
+ 
+ 
+ 3. http://localhost:3334/period **(post)**
  
  * This route receives two dates for the verification of the rules registered for the chosen days.
  
  
-####  req.query  
+#####  req.body (JSON) 
 
 ```
-since => 01-11-2019
-until => 10-11-2019
+   {
+	"since":"2019-11-01",
+	"until":"2019-11-13"
+   }
  ```
 
 
-#### Res.json(rules)
+##### Response
 
 ```
 [
@@ -165,17 +233,18 @@ until => 10-11-2019
  
  4. http://localhost:3334/rules/2 **(delete)**
 
-#### Res
+##### Res
 
 ```
 	true 	
 
  ```
 
-#### req.query 
+##### req.query 
 
 ```
-	"id": 2 	
+	http://localhost:3334/rules/5
+	"id": 5 	
 
  ```
 
