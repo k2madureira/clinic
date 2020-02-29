@@ -2,7 +2,7 @@
 
 # Clinic ![node](https://user-images.githubusercontent.com/26586585/75612422-f747e380-5b01-11ea-9213-ec9742b66a47.png)
 
-### Structure
+### Structure:
 
 ```
   clinic
@@ -24,13 +24,13 @@
         |_ > server.js
 ```
 
-### Docs
+### Docs:
 
 1. PostMan ( https://documenter.getpostman.com/view/9357385/SzKZsbor )
 2. PostMan Collection ( public/postman/Clinic.postman_collection.json ) 
 3. docs
 
-### Setting up local environment
+### Setting up local environment:
 
 1. Install **Yarn**;
 2. Using terminal, navigate to the folder where the project was cloned and run:<br> **git clone https://github.com/k2madureira/clinic.git** 
@@ -46,7 +46,7 @@
 - [x] **EditorConfig** (Visual Studio Code - Extension)
 
 
-### Routes
+### Endpoints:
 
 |Number| Type | Route | Definition |
 |-|------|-------|------------|
