@@ -26,10 +26,10 @@
 |Number| Type | Route | Definition |
 |-|------|-------|------------|
 |1| *Get* | / | List All rules |
-|2| *Get* | /rules | List All rules |
-|3| *Post* | /rules/type | Create a new Rule |
-|4| *Get* | /rules/period | List All rules in a period |
-|5| *Delete* | /rules/1 | Delete rule by **ID** |
+|1.1| *Get* | /rules | List All rules |
+|2| *Post* | /rules/type | Create a new Rule |
+|3| *Get* | /rules/period | List All rules in a period |
+|4| *Delete* | /rules/1 | Delete rule by **ID** |
 
 
 
