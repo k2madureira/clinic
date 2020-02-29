@@ -5,7 +5,7 @@
 
 ### Docs
 
-1.
+1. PostMan ( https://documenter.getpostman.com/view/9357385/SzKZsbor )
 2. docs
 
 ### Setting up environment
