@@ -1,11 +1,14 @@
-# Clinic
+
+
+# Clinic ![node](https://user-images.githubusercontent.com/26586585/75612422-f747e380-5b01-11ea-9213-ec9742b66a47.png)
+
 
 ### Docs
 
 1. 
 2. docs
 
-### Setting up environment
+### Setting up environment 
 
 1. Install **Yarn**;
 2. Using terminal, navigate to the folder where the project was cloned;
@@ -29,7 +32,7 @@
 |1.1| *Get* | /rules | List All rules |
 |2| *Post* | /rules/type | Create a new Rule |
 |3| *Get* | /rules/period | List All rules in a period |
-|4| *Delete* | /rules/1 | Delete rule by **ID** |
+|4| *Delete* | /rules/5 | Delete rule by **ID** |
 
 
 
@@ -56,7 +59,7 @@
  
  ------------------------------------------------------------
  
- 2. http://localhost:3334/rules/daily **(post)** 
+  2. http://localhost:3334/rules/daily **(post)** 
  
  #### Conditions :
  * If **days** is empty and **date** is filled it is considered a specific rule. That is, registration of a specific day;
@@ -168,7 +171,7 @@
  ------------------------------------------------------
  
  
- 3. http://localhost:3334/period **(post)**
+  3. http://localhost:3334/period **(post)**
  
  * This route receives two dates for the verification of the rules registered for the chosen days.
  
@@ -231,7 +234,7 @@
  ```
  
  
- 4. http://localhost:3334/rules/2 **(delete)**
+ 4. http://localhost:3334/rules/5 **(delete)**
 
 ##### Res
 
