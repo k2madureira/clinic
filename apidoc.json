@@ -1,0 +1,6 @@
+{
+  "level":"error",
+  "name": "Clinic",
+  "version": "0.1.0",
+  "description": "API to manage clinic opening hours"
+}
