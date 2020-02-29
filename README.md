@@ -13,6 +13,11 @@
 4. Using your code editor, I renamed the **.exemple.env** file to **.env**;
 5. Using terminal run **yarn start**, to start the server on port **3334**
 
+### code formatter
+
+- [x] **Eslint** (Airbnb)
+- [x] **Prettier**
+
 ### Routes
 
 
