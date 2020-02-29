@@ -7,6 +7,7 @@
 ```
   clinic
     |_ public
+        |_ __tests__
         |_ docs
         |_ postman
     |_ src
