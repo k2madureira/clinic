@@ -5,10 +5,17 @@
 
 ### Docs
 
+<<<<<<< HEAD
 1.
 2. docs
 
 ### Setting up environment
+=======
+1. 
+2. docs
+
+### Setting up environment 
+>>>>>>> 680f6219dcadc83d8d5819d802c4378a4819eb83
 
 1. Install **Yarn**;
 2. Using terminal, navigate to the folder where the project was cloned;
@@ -36,7 +43,11 @@
 
 
 
+<<<<<<< HEAD
 #### Exemples:
+=======
+#### Exemples: 
+>>>>>>> 680f6219dcadc83d8d5819d802c4378a4819eb83
 
 
 1. http://localhost:3334/ or http://localhost:3334/rules **(get)**
@@ -56,19 +67,33 @@
      }
   }]
  ```
+<<<<<<< HEAD
 
  ------------------------------------------------------------
 
   2. http://localhost:3334/rules/daily **(post)**
 
+=======
+ 
+ ------------------------------------------------------------
+ 
+  2. http://localhost:3334/rules/daily **(post)** 
+ 
+>>>>>>> 680f6219dcadc83d8d5819d802c4378a4819eb83
  #### Conditions :
  * If **days** is empty and **date** is filled it is considered a specific rule. That is, registration of a specific day;
  * If **days** and **date** is empty, is considered a daily rule;
  * If **date** empty, is considered a weekly rule;
  * If a specific day has already been registered. A time check is performed for the addition of a new time.
+<<<<<<< HEAD
 
 
  ##### req.query
+=======
+ 
+ 
+ ##### req.query 
+>>>>>>> 680f6219dcadc83d8d5819d802c4378a4819eb83
 
 ```
 	http://localhost:3334/rules/daily
@@ -76,6 +101,7 @@
 	types = ['specific', 'daily', 'weekly']
 
  ```
+<<<<<<< HEAD
 
 
 
@@ -108,13 +134,51 @@
      }
  ```
 
+=======
+ 
+ 
+ 
+ ##### Exemples req.body (JSON) 
+
+ 1. Daily
+```
+     { 
+	"days": [],
+	"date_start": "2020-03-05 13:00:00", 
+	"date_end": "2020-03-05 14:05:00"	
+     }
+ ```
+ 
+2. Weekly
+```
+     { 
+	"days": ["Sun","Mon"],
+	"date_start": "2020-03-05 09:00:00", 
+	"date_end": "2020-03-05 10:00:00"	
+     }
+ ```
+ 
+ 3. Specific
+```
+     { 
+	"days": [],
+	"date_start": "2020-03-05 17:00:00", 
+	"date_end": "2020-03-05 18:00:00"	
+     }
+ ```
+ 
+>>>>>>> 680f6219dcadc83d8d5819d802c4378a4819eb83
 ##### Responses
 
 1. Daily
 ```
    {
   	"menssage": "Successfully updated rule!",
+<<<<<<< HEAD
 	"update":
+=======
+	"update": 
+>>>>>>> 680f6219dcadc83d8d5819d802c4378a4819eb83
             [{
 	      "id": 1,
 	      "type": "daily",
@@ -131,7 +195,11 @@
 ```
    {
   	"menssage": "Successfully updated rule!",
+<<<<<<< HEAD
 	"update":
+=======
+	"update": 
+>>>>>>> 680f6219dcadc83d8d5819d802c4378a4819eb83
             [{
 	      "id": 2,
 	      "type": "Weekly",
@@ -144,12 +212,20 @@
 	    }]
     }
  ```
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 680f6219dcadc83d8d5819d802c4378a4819eb83
  3. Specific
 ```
    {
   	"menssage": "Successfully updated rule!",
+<<<<<<< HEAD
 	"update":
+=======
+	"update": 
+>>>>>>> 680f6219dcadc83d8d5819d802c4378a4819eb83
             [{
 	      "id": 1,
 	      "type": "daily",
@@ -167,6 +243,7 @@
 	    ]
     }
  ```
+<<<<<<< HEAD
 
  ------------------------------------------------------
 
@@ -177,6 +254,18 @@
 
 
 #####  req.body (JSON)
+=======
+ 
+ ------------------------------------------------------
+ 
+ 
+  3. http://localhost:3334/period **(post)**
+ 
+ * This route receives two dates for the verification of the rules registered for the chosen days.
+ 
+ 
+#####  req.body (JSON) 
+>>>>>>> 680f6219dcadc83d8d5819d802c4378a4819eb83
 
 ```
    {
@@ -232,13 +321,19 @@
   }
 ]
  ```
+<<<<<<< HEAD
 
 
+=======
+ 
+ 
+>>>>>>> 680f6219dcadc83d8d5819d802c4378a4819eb83
  4. http://localhost:3334/rules/5 **(delete)**
 
 ##### Res
 
 ```
+<<<<<<< HEAD
 	true
 
  ```
@@ -248,6 +343,17 @@
 ```
 	http://localhost:3334/rules/5
 	"id": 5
+=======
+	true 	
+
+ ```
+
+##### req.query 
+
+```
+	http://localhost:3334/rules/5
+	"id": 5 	
+>>>>>>> 680f6219dcadc83d8d5819d802c4378a4819eb83
 
  ```
 
