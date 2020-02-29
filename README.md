@@ -6,7 +6,8 @@
 ### Docs
 
 1. PostMan ( https://documenter.getpostman.com/view/9357385/SzKZsbor )
-2. docs
+2. PostMan Collection ( public/postman/Clinic.postman_collection.json ) 
+3. docs
 
 ### Setting up environment
 
