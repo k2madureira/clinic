@@ -35,8 +35,7 @@
 1. Install **Yarn**;
 2. Using terminal, navigate to the folder where the project was cloned and run:<br> **git clone https://github.com/k2madureira/clinic.git** ;
 3. Using terminal, access the **clinic** folder and Run **yarn install**, to download all necessary dependencies;
-4. Using your code editor, I renamed the **.exemple.env** file to **.env**;
-5. Using terminal run **yarn start**, to start the server on port **3334**
+4. Using terminal run **yarn start**, to start the server on port **3334**
 
 ### code formatter / Extensions
 
