@@ -38,7 +38,7 @@
 4. Using terminal run **yarn start**, to start the server on port **3334**
 5. For testing, the **insomnia** software is recommended
 
-### code formatter / Extensions
+### code formatter / Extensions:
 
 - [x] **Eslint** (Airbnb)
 - [x] **Eslint** (Visual Studio Code - Extension)
