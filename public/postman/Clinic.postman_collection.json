@@ -1,0 +1,142 @@
+{
+	"info": {
+		"_postman_id": "13b4e77c-349a-4e6f-b351-38fad18bfb1f",
+		"name": "Clinic",
+		"description": "API to manage clinic opening hours",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Rules",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://clinic-nodejs.herokuapp.com/rules",
+					"protocol": "https",
+					"host": [
+						"clinic-nodejs",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"rules"
+					]
+				},
+				"description": "Get all rules"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Rule",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "types",
+						"value": "[ specific, daily ,  weekly ]",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"days\": [],\n\t\"date_start\": \"2020-03-06 05:00:00\", \n\t\"date_end\": \"2020-03-06 07:00:00\"\t\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://clinic-nodejs.herokuapp.com/rules/specific",
+					"protocol": "https",
+					"host": [
+						"clinic-nodejs",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"rules",
+						"specific"
+					]
+				},
+				"description": "Get all rules"
+			},
+			"response": []
+		},
+		{
+			"name": "Period Rules",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"since\":\"2019-11-01\",\n\t\"until\":\"2019-11-13\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://clinic-nodejs.herokuapp.com/rules/period",
+					"protocol": "https",
+					"host": [
+						"clinic-nodejs",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"rules",
+						"period"
+					]
+				},
+				"description": "Get all rules"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Rule",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://clinic-nodejs.herokuapp.com/rules/9",
+					"protocol": "https",
+					"host": [
+						"clinic-nodejs",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"rules",
+						"9"
+					]
+				},
+				"description": "Get all rules"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
