@@ -30,14 +30,20 @@
 1. PostMan ( https://documenter.getpostman.com/view/9357385/SzKZsbor )
 2. PostMan Collection ( public/postman/Clinic.postman_collection.json ) 
 3. docs
+4. Code Coverage ( -tests-/coverage/lcov-report/index.html )
 
 ### Setting up local environment:
 
 1. Install **Yarn**;
 2. Using terminal, navigate to the folder where the project was cloned and run:<br> **git clone https://github.com/k2madureira/clinic.git** 
 3. Using terminal, access the **clinic** folder and Run **yarn install**, to download all necessary dependencies;
-4. Using terminal run **yarn start**, to start the server on port **3334**
-5. For testing, the **insomnia** software is recommended
+4. Using terminal run **yarn start**, to start the server on port **3334**;
+5. For testing, the **insomnia** software is recommended;
+6. To perform the unit test **yarn test**
+
+### Tests:
+- [x] **Jest**
+- [x] **Code coverage**
 
 ### code formatter / Extensions:
 
