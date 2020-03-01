@@ -1,4 +1,4 @@
-const { parseISO, isWithinInterval, isDate, isBefore } = require('date-fns');
+const { parseISO, isWithinInterval, isBefore, isValid } = require('date-fns');
 const { format } = require('date-fns-tz');
 const Rule = require('../models/Rule');
 
@@ -6,7 +6,7 @@ class ruleController {
   async index(__, res) {
     const rules = await Rule.list();
 
-    return res.json(rules);
+    return res.json({ rules });
   }
 
   /**
@@ -21,24 +21,24 @@ class ruleController {
 
   async period(req, res) {
     const { since, until } = req.body;
-    const Since = parseISO(format(parseISO(since), 'yyyy-MM-dd'));
-    const Until = parseISO(format(parseISO(until), 'yyyy-MM-dd'));
-    const verifyDateSince = isDate(Since);
-    const verifyDateUntil = isDate(Until);
-
-    if (!verifyDateSince || !verifyDateUntil) {
-      return res.status(401).json({ error: 'Date invalid!' });
-    }
-
-    // Treatment of possible inversion error in the request
-    const biggest_date = isBefore(Since, Until);
-    const start = !biggest_date ? Until : Since;
-    const end = !biggest_date ? Since : Until;
-    const body = { start, end };
-
     try {
+      const verifyDateSince = isValid(new Date(since));
+      const verifyDateUntil = isValid(new Date(until));
+
+      if (!verifyDateSince || !verifyDateUntil) {
+        return res.status(401).json({ error: 'Date invalid!' });
+      }
+
+      const Since = parseISO(format(parseISO(since), 'yyyy-MM-dd'));
+      const Until = parseISO(format(parseISO(until), 'yyyy-MM-dd'));
+
+      // Treatment of possible inversion error in the request
+      const biggest_date = isBefore(Since, Until);
+      const start = !biggest_date ? Until : Since;
+      const end = !biggest_date ? Since : Until;
+      const body = { start, end };
+
       const rules = await Rule.period(body);
-      res.json(rules);
       return res.json({ rules });
     } catch (err) {
       if (err) return res.status(500).json({ error: err.message });
@@ -50,16 +50,16 @@ class ruleController {
     const { type } = req.params;
     const { date_start, date_end } = req.body;
 
-    const ds = parseISO(date_start);
-    const de = parseISO(date_end);
-    const date = format(ds, 'yyyy-MM-dd');
-
-    const verifyDateStart = isDate(ds);
-    const verifyDateEnd = isDate(de);
+    const verifyDateStart = isValid(new Date(date_start));
+    const verifyDateEnd = isValid(new Date(date_end));
 
     if (!verifyDateStart || !verifyDateEnd) {
       return res.status(401).json({ error: 'Date invalid!' });
     }
+
+    const ds = parseISO(date_start);
+    const de = parseISO(date_end);
+    const date = format(ds, 'yyyy-MM-dd');
 
     try {
       const Rules = await Rule.list();
@@ -76,7 +76,7 @@ class ruleController {
 
       if (!verifyType) {
         return res.status(401).json({
-          Error: `Type ${type} wrong. Please try using one of these [ ${types.map(
+          error: `Type ${type} wrong. Please try using one of these [ ${types.map(
             r => r
           )} ]`,
         });
@@ -138,7 +138,7 @@ class ruleController {
       const rule = Rule.create(type, req.body);
       return res.json({
         status: 'Success',
-        rule,
+        rules: rule,
       });
     } catch (err) {
       if (err) return res.status(500).json({ error: err.message });
