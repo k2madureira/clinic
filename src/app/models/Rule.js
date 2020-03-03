@@ -266,8 +266,6 @@ class Rule {
     const { rules } = this;
 
     const index = rules.findIndex(rule => rule.id === parseInt(id));
-    console.log(index);
-
     if (index !== -1) {
       const delet = this.rules.splice(index, 1);
       const json = JSON.stringify(this.rules);
