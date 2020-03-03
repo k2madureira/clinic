@@ -150,6 +150,10 @@ class ruleController {
 
     try {
       const rules = await Rule.delete(id);
+
+      if (rules === 'error') {
+        return res.status(401).json({ error: 'id invalid!' });
+      }
       return res.json(rules);
     } catch (err) {
       if (err) return res.status(500).json({ error: err.message });

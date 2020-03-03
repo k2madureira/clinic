@@ -266,19 +266,23 @@ class Rule {
     const { rules } = this;
 
     const index = rules.findIndex(rule => rule.id === parseInt(id));
-    const delet = this.rules.splice(index, 1);
+    console.log(index);
 
-    const json = JSON.stringify(this.rules);
+    if (index !== -1) {
+      const delet = this.rules.splice(index, 1);
+      const json = JSON.stringify(this.rules);
 
-    fs.writeFile(this.path, json, 'utf8', function(err) {
-      if (err) throw err;
-      console.log('Banco atualizado');
-    });
+      fs.writeFile(this.path, json, 'utf8', function(err) {
+        if (err) throw err;
+        console.log('Banco atualizado');
+      });
 
-    if (delet) {
-      return true;
+      if (delet) {
+        return true;
+      }
+    } else {
+      return 'error';
     }
-    return false;
   }
 }
 
