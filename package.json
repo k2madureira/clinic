@@ -14,7 +14,7 @@
     "date-fns-timezone": "^0.1.4",
     "date-fns-tz": "^1.0.10",
     "dotenv": "^8.2.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "timezone-support": "^2.0.2"
   },
   "devDependencies": {
